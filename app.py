@@ -7,7 +7,6 @@ from flask_restx import Api
 from database import db
 
 import os
-import warnings
 
 app = Flask(__name__)
 CORS(app)
@@ -98,9 +97,6 @@ api.add_resource(nimbus.Initialize, "/nimbus/initialize")
 api.add_resource(nimbus.Iterate, "/nimbus/iterate")
 api.add_resource(nimbus.Save, "/nimbus/save")
 api.add_resource(nimbus.Choose, "/nimbus/choose")
-
-# Add the endpoint for the forest map for UTOPIA
-api.add_resource(nimbus.UtopiaMap, "/nimbus/utopia")
 
 # Add questionnaire endpoints
 api.add_resource(
