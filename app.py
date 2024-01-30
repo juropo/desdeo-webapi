@@ -27,8 +27,16 @@ if db_host is not None:
         "SQLALCHEMY_DATABASE_URI"
     ] = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
-    warnings.warn('Postgres host not been set up in env. Defaulting to sqlite:///app.db')
+    db_user = "bhupindersaini"
+    db_password = ""
+    db_host = "localhost"
+    db_port = "5432"
+    db_name = "DESDEO"
+    app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ] = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+    #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
+    #warnings.warn('Postgres host not been set up in env. Defaulting to sqlite:///app.db')
 
 
 #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
