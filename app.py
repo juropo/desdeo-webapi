@@ -38,8 +38,6 @@ else:
     #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
     #warnings.warn('Postgres host not been set up in env. Defaulting to sqlite:///app.db')
 
-
-#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "secret-key"
 app.config["JWT_SECRET_KEY"] = "jwt-secret-key"
@@ -105,6 +103,9 @@ api.add_resource(nimbus.Initialize, "/nimbus/initialize")
 api.add_resource(nimbus.Iterate, "/nimbus/iterate")
 api.add_resource(nimbus.Save, "/nimbus/save")
 api.add_resource(nimbus.Choose, "/nimbus/choose")
+
+# Add the endpoint for the forest map for UTOPIA
+api.add_resource(nimbus.UtopiaMap, "/nimbus/utopia")
 
 # Add questionnaire endpoints
 api.add_resource(
